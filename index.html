@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Timeline Website</title>
+  <style>
+    /* CSS for the timeline container */
+    .timeline {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      border-right: 2px solid #000;
+    }
+
+    /* CSS for the events/images */
+    .event {
+      position: absolute;
+      top: 0;
+      left: 50px; /* Adjust the left position as needed */
+      width: 100px; /* Adjust the width as needed */
+      height: 100px; /* Adjust the height as needed */
+      background-color: #f0f0f0;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="timeline"></div>
+
+  <script>
+    // JavaScript code to add event images to the timeline
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get the timeline container
+      var timeline = document.querySelector(".timeline");
+
+      // Create event images
+      var event1 = createEvent("path/to/image1.jpg", "Event 1", "Description 1", "100px");
+      var event2 = createEvent("path/to/image2.jpg", "Event 2", "Description 2", "200px");
+      var event3 = createEvent("path/to/image3.jpg", "Event 3", "Description 3", "300px");
+      // Add more events as needed
+
+      // Append the event images to the timeline
+      timeline.appendChild(event1);
+      timeline.appendChild(event2);
+      timeline.appendChild(event3);
+      // Append more events as needed
+
+      // Function to create an event image
+      function createEvent(imageSrc, title, description, topPosition) {
+        var event = document.createElement("div");
+        event.className = "event";
+        event.style.backgroundImage = "url('" + imageSrc + "')";
+        event.title = title;
+        event.innerHTML = "<h3>" + title + "</h3><p>" + description + "</p>";
+        event.style.top = topPosition;
+        return event;
+      }
+    });
+  </script>
+</body>
+</html>
