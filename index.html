@@ -32,17 +32,22 @@
       // Get the timeline container
       var timeline = document.querySelector(".timeline");
 
-      // Create event images
-      var event1 = createEvent("path/to/image1.jpg", "Event 1", "Description 1", "100px");
-      var event2 = createEvent("path/to/image2.jpg", "Event 2", "Description 2", "200px");
-      var event3 = createEvent("path/to/image3.jpg", "Event 3", "Description 3", "300px");
-      // Add more events as needed
+      // Array of event data
+      var events = [
+        { imageSrc: "path/to/image1.jpg", title: "Event 1", description: "Description 1", topPosition: "100px" },
+        { imageSrc: "path/to/image2.jpg", title: "Event 2", description: "Description 2", topPosition: "200px" },
+        { imageSrc: "path/to/image3.jpg", title: "Event 3", description: "Description 3", topPosition: "300px" },
+        // Add more event objects as needed
+        // { imageSrc: "path/to/image4.jpg", title: "Event 4", description: "Description 4", topPosition: "400px" },
+        // { imageSrc: "path/to/image5.jpg", title: "Event 5", description: "Description 5", topPosition: "500px" },
+        // ...
+      ];
 
-      // Append the event images to the timeline
-      timeline.appendChild(event1);
-      timeline.appendChild(event2);
-      timeline.appendChild(event3);
-      // Append more events as needed
+      // Create event images and append them to the timeline
+      events.forEach(function(eventData) {
+        var event = createEvent(eventData.imageSrc, eventData.title, eventData.description, eventData.topPosition);
+        timeline.appendChild(event);
+      });
 
       // Function to create an event image
       function createEvent(imageSrc, title, description, topPosition) {
